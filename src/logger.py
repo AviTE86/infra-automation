@@ -8,4 +8,4 @@ def setup_logging():
     )
     return logging.getLogger()
 
-logger = setup_logging()
+logger = logging.getLogger("infra_sim_log")

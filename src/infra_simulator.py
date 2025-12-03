@@ -1,9 +1,10 @@
 from datetime import datetime
 from typing import Optional
-from pydantic import BaseModel
+from pydantic import BaseModel, field_validator
 import json
 from machine import MachineSpecs
 import subprocess
+import logger
 
 print("Welcome to the Machine Configuration Manager")
 while True:
@@ -36,11 +37,12 @@ with open("configs/instances.json", "w") as f:
 
 def setup_installation():
     try:
-        subprocess.run(["bash", "scripts/setup_ngnix.sh"],
+        subprocess.run(["bash", "scripts/setup_nginx.sh"],
 check=True)
-        print("[INFO] Nginx installation completed.")
+        logger.info("[INFO] Nginx installation completed.")
     except subprocess.CalledProcessError as e:
-        print(f"[ERROR] Failed to install Nginx: {e}")
+        logger.error(f"[ERROR] Failed to install Nginx: {e}")
+
 
 logging.basicConfig(
     filename='logs/provisioning.log',
@@ -49,9 +51,9 @@ logging.basicConfig(
 )
 def log_message(message, level="info"):
     if level == "error":
-        logging.error(message)
+        logger.error(message)
     else:
-        logging.info(message)
+        logger.info(message)
     print(message)
 
 log_message("Provisioning started.")
