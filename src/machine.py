@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing import Optional, Literal
-from pydantic import BaseModel, Field, field_validator
-import logger
+from pydantic import BaseModel, Field
+from logger import logger
 class MachineSpecs(BaseModel):
     name: str = Field(
         min_length=3,  # Minimum length of 3 characters
@@ -9,15 +9,11 @@ class MachineSpecs(BaseModel):
         pattern=r"^[a-zA-Z0-9_]*$" # Only alphanumeric and underscore characters allowed
     )
     os: Literal["centos", "redhat", "ubuntu"]
-    cpu: int = Field(gt=0)
-    ram: int = Field(gt=0)
-    storage: int = Field(gt=0)
+    cpu: Literal["1","2","4"]
+    ram: Literal["1","2","4"]
+    storage: Literal["2","4","8"]
 
-    @field_validator("name")
-    def normalize_name(cls, value: str) -> str:
-        return value.lower()
-
-    def dictionary(self):
+    def dict(self):
         return {
             "name": self.name,
             "os": self.os,
@@ -26,7 +22,7 @@ class MachineSpecs(BaseModel):
             "storage": self.storage
         }
     def log_creation(self):
-        logger.logger.info(
+        logger.info(
             f"Provisioning machine: {self.name}, " 
             f"with {self.os} OS, {self.cpu} core CPU, "
             f"{self.ram}GB RAM and {self.storage}GB of storage."
