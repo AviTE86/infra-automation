@@ -9,11 +9,11 @@ class MachineSpecs(BaseModel):
         pattern=r"^[a-zA-Z0-9_]*$" # Only alphanumeric and underscore characters allowed
     )
     os: Literal["centos", "redhat", "ubuntu"]
-    cpu: Literal["1","2","4"]
-    ram: Literal["1","2","4"]
-    storage: Literal["2","4","8"]
+    cpu: Literal[1, 2, 4]
+    ram: Literal[1, 2, 4]
+    storage: Literal[2 ,4 ,8]
 
-    def dict(self):
+    def to_dict(self):
         return {
             "name": self.name,
             "os": self.os,
