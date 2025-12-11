@@ -80,6 +80,7 @@ def main():
     machine = instances
     logger.info(f"Provisioning {machine.name}")
     print(machine.to_dict())
+    setup_installation()
 
 if __name__ == "__main__":
     main()
