@@ -2,7 +2,7 @@ import logging
 
 def setup_logging():
     logging.basicConfig(
-        filename='provisioning.log',
+        filename='logs/provisioning.log',
         level=logging.INFO,
         format='%(asctime)s - %(levelname)s - %(message)s'
     )

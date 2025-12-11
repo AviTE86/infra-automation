@@ -1,2 +1,6 @@
 2025-12-08 16:39:26,450 - ERROR - TEST112233
 2025-12-09 09:36:56,666 - ERROR - TEST112233
+2025-12-11 22:26:58,978 - INFO - Machine lasttest was created
+2025-12-11 22:26:58,984 - INFO - Provisioning started.
+2025-12-11 22:26:58,984 - ERROR - Provisioning failed due to network issue.
+2025-12-11 22:26:58,984 - INFO - Provisioning lasttest

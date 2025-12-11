@@ -33,9 +33,9 @@ def get_user_input():
         try:
             name = input("Please select a name for your virtual machine: ")
             os = input("Please select one of the following OS options: centos, redhat, ubuntu: ")
-            cpu = input("Please select one of the following CPU options and type your selection in numbers only: 1 (1 CPU), 2 (2 CPU), 4 (4 CPU): ")
-            ram = input("Please select one of the following RAM options and type your selection in numbers only: 1 (1GB RAM), 2 (2GB RAM), 4 (4GB RAM): ")
-            storage = input("Please select one of the following DISK options and type your selection in numbers only: 2 (2GB DISK), 4 (4GB DISK), 8 (8GB DISK): ")
+            cpu = int(input("Please select one of the following CPU options and type your selection in numbers only: 1 (1 CPU), 2 (2 CPU), 4 (4 CPU): "))
+            ram = int(input("Please select one of the following RAM options and type your selection in numbers only: 1 (1GB RAM), 2 (2GB RAM), 4 (4GB RAM): "))
+            storage = int(input("Please select one of the following DISK options and type your selection in numbers only: 2 (2GB DISK), 4 (4GB DISK), 8 (8GB DISK): "))
 
             machine = MachineSpecs(
                 name=name, 
