@@ -69,7 +69,7 @@ Install Nginx (if the machine OS is Ubuntu)
 
 Python 3.10+
 Ubuntu (for running the bash script)
-Pydantic
+Pydantic - if pydantic error occurs run: sudo apt install python3-pydantic
 Logging module (built-in)
 
 Install dependencies:
